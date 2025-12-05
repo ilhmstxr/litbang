@@ -43,10 +43,10 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen text-white overflow-x-hidden">
-      <Navbar />
+    <div className="bg-black min-h-screen text-white">
+      <Navbar unlockedSections={unlockedSections} />
       <Hero />
-      <Marquee />
+      <Marquee text="LITBANG 2024 • RESEARCH & DEVELOPMENT •" />
       <DNA />
       <Journey />
       <Social />
