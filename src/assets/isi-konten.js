@@ -169,6 +169,7 @@ export const teamData = [
       "Si Paling Idealis",
     ],
     quote: "Gasskan aja dulu, urusan teknis pikir nanti.",
+    instagram: "https://instagram.com",
   },
   {
     role: "The Anchor",
@@ -181,6 +182,7 @@ export const teamData = [
       "Realistis Sejati",
     ],
     quote: "Bentar, kita hitung dulu budget-nya cukup nggak.",
+    instagram: "https://instagram.com",
   },
   {
     role: "The Scribe",
@@ -193,6 +195,7 @@ export const teamData = [
       "Si Paling Greget",
     ],
     quote: "Absen diisi dulu ya, Gaes. Deadline jam 12!",
+    instagram: "https://instagram.com",
   },
   {
     role: "Specialist",
@@ -205,6 +208,7 @@ export const teamData = [
       "Ensiklopedia Berjalan",
     ],
     quote: "Udah daftar lomba ini belum? Hadiahnya gede!",
+    instagram: "https://instagram.com",
   },
   {
     role: "Specialist",
@@ -212,6 +216,7 @@ export const teamData = [
     img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=600",
     traits: ["PJ PKM", "Si Paling Cool", "Minim Ngomong", "Tukang Carry Tim"],
     quote: "...",
+    instagram: "https://instagram.com",
   },
   {
     role: "Specialist",
@@ -224,6 +229,7 @@ export const teamData = [
       "Susah Ketemu",
     ],
     quote: "Meeting jam berapa? Gue ada call lagi abis ini.",
+    instagram: "https://instagram.com",
   },
   {
     role: "Specialist",
@@ -231,6 +237,7 @@ export const teamData = [
     img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=600",
     traits: ["PJ Tema", "Si Paling Kepo", "Gudang Saran", "Aktif Bertanya"],
     quote: "Eh kenapa gitu? Terus kalo gini gimana?",
+    instagram: "https://instagram.com",
   },
 ];
 
@@ -297,8 +304,7 @@ export const highlightsData = [
 export const navbarData = [
   { id: "dna", label: "DNA" },
   { id: "journey", label: "The Timeline" },
-  { id: "social", label: "Social" },
-  { id: "highlights", label: "Highlights" },
+  { id: "social", label: "Our Product" },
   { id: "team", label: "Team" },
 ];
 
@@ -349,28 +355,52 @@ export const dnaData = {
   ],
 };
 
-// --- Social Component Data ---
+// --- Product Component Data (Previously Social) ---
 export const socialData = {
   header: {
-    title: "On",
-    highlight: "Socials",
+    title: "Our",
+    highlight: "Products",
   },
   items: [
     {
-      name: "Edulit",
-      handle: "@edulit.riset",
-      desc: "Educational Literacy",
-      img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=600",
+      name: "Workshop",
+      handle: "Skill Development",
+      desc: "Pelatihan hard-skill dan soft-skill untuk mahasiswa eksternal dan internal.",
+      img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=600",
+      rotate: "rotate-2",
+      isTheme: false,
+    },
+    {
+      name: "PKM",
+      handle: "Research Center",
+      desc: "Pusat pendampingan dan pengembangan Program Kreativitas Mahasiswa.",
+      img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600",
+      rotate: "-rotate-1",
+      isTheme: false,
+    },
+    {
+      name: "Aksi Belajar",
+      handle: "Social Movement",
+      desc: "Gerakan mengajar dan berbagi inspirasi ke sekolah-sekolah di pelosok.",
+      img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=600",
       rotate: "rotate-3",
       isTheme: false,
     },
     {
+      name: "Edulit",
+      handle: "Digital Content",
+      desc: "Konten edukasi literasi visual yang dikemas ringan dan informatif.",
+      img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=600",
+      rotate: "-rotate-2",
+      isTheme: false,
+    },
+    {
       name: "Tema",
-      handle: "@tema.mhs",
-      desc: "Teman Mahasiswa",
-      img: "", // Placeholder logic handled in component
-      rotate: "-rotate-3",
-      isTheme: true,
+      handle: "Community Hub",
+      desc: "Teman Mahasiswa: Wadah diskusi dan aspirasi seputar kehidupan kampus.",
+      img: "",
+      rotate: "rotate-1",
+      isTheme: true, // Special branding for TEMA
     },
   ],
 };

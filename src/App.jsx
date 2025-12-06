@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import DNA from './components/DNA';
 import Journey from './components/Journey';
 import Social from './components/Social';
-import Highlights from './components/Highlights';
+// import Highlights from './components/Highlights';
 import Team from './components/Team';
 import Memories from './components/Memories';
 import Footer from './components/Footer';
@@ -23,7 +23,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const sections = ['dna', 'journey', 'social', 'highlights', 'team', 'memories'];
+    const sections = ['dna', 'journey', 'social', 'team', 'memories'];
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -44,17 +44,25 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen text-white">
-      <Navbar unlockedSections={unlockedSections} />
-      <Hero />
+    <div className="bg-dark min-h-screen text-white relative">
+       {/* Background Layer */}
+       <div className="fixed inset-0 z-0 opacity-20 pointer-events-none">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=1600')] bg-cover bg-center filter blur-3xl scale-125"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-dark via-transparent to-dark"></div>
+       </div>
+
+      <div className="relative z-10">
+        <Navbar unlockedSections={unlockedSections} />
+        <Hero />
       <Marquee text={marqueeData.text} />
       <DNA />
       <Journey />
       <Social />
-      <Highlights />
+      {/* <Highlights /> */}
       <Team />
       <Memories />
       <Footer />
+      </div>
 
       {/* Styles */}
       <style>{`

@@ -62,7 +62,7 @@ Reveal.displayName = 'Reveal';
 // Komponen Sub-Card untuk Section (Internal)
 const SubCard = ({ title, date, pos, w, h }) => (
   <div 
-    className={`absolute ${pos} ${w} ${h} bg-white/90 backdrop-blur-sm p-3 md:p-4 rounded-xl shadow-lg border-2 border-[#B91C1C] transition-transform duration-300 hover:scale-[1.03] font-sans-clean`}
+    className={`absolute ${pos} ${w} ${h} bg-white/90 backdrop-blur-sm p-3 md:p-4 rounded-xl shadow-lg border-2 border-primary transition-transform duration-300 hover:scale-[1.03] font-sans-clean`}
   >
     <p className="font-bold text-sm md:text-md text-[#1a1a1a] leading-tight mb-1">{title}</p>
     <span className="font-mono text-xs text-neutral-500 flex items-center">
@@ -77,7 +77,7 @@ const SectionCardRenderer = ({ item, config }) => (
     
     {/* HEADER CONTAINER (Posisi Tetap di Kiri Atas - Z-index tinggi) */}
     <div className="absolute top-4 left-4 w-1/3 z-30 bg-white/70 backdrop-blur-sm p-3 rounded-lg shadow-md border border-neutral-200">
-      <h3 className="text-3xl font-serif-display text-[#B91C1C] mb-1 leading-tight">
+      <h3 className="text-3xl font-serif-display text-primary mb-1 leading-tight">
         {item.title}
       </h3>
       <p className="text-xs font-bold uppercase tracking-tight mb-1 font-sans-clean">{item.subtitle}</p>
@@ -85,7 +85,7 @@ const SectionCardRenderer = ({ item, config }) => (
     </div>
     
     {/* Background marker - Ukuran font dikecilkan agar lebih subtil */}
-    <div className="absolute top-0 right-0 p-4 text-7xl md:text-8xl font-black text-[#B91C1C]/10 font-sans-clean z-0">{item.date.split(' ')[0]}</div>
+    <div className="absolute top-0 right-0 p-4 text-7xl md:text-8xl font-black text-primary/10 font-sans-clean z-0">{item.date.split(' ')[0]}</div>
 
     {/* Sub Cards Container: Menggunakan posisi absolut untuk memposisikan sub-card diluar zona header */}
     <div className="absolute inset-0 p-4 z-10">
@@ -120,25 +120,25 @@ const Journey = () => {
   // KONFIGURASI UNIK UNTUK 10 KARTU (Ukuran & Posisi)
   const cardConfigs = [
     // 0: KICK OFF (Card)
-    { w: 'w-[500px] max-w-[80vw]', h: 'aspect-[1/1]', y: 'self-center -translate-y-16' }, 
+    { w: 'w-[500px] max-w-[80vw]', h: 'aspect-[1/1]', y: 'self-center -translate-y-8 md:-translate-y-16' }, 
     // 1: SERIOUS MODE (Section - Ukuran besar untuk menampung sub-card)
-    { w: 'w-[650px] max-w-[90vw]', h: 'aspect-[3/2]', y: 'self-start mt-0 md:mt-24' },
+    { w: 'w-[650px] max-w-[90vw]', h: 'aspect-[3/2]', y: 'self-start mt-4 md:mt-12' },
     // 2: PUBLIC EVENT (Card)
-    { w: 'w-[400px] max-w-[70vw]', h: 'aspect-[4/3]', y: 'self-end -translate-y-10 md:-translate-y-36' },
+    { w: 'w-[400px] max-w-[70vw]', h: 'aspect-[4/3]', y: 'self-end -translate-y-4 md:-translate-y-12' },
     // 3: HEALING (Card)
-    { w: 'w-[350px] max-w-[60vw]', h: 'aspect-[3/4]', y: 'self-center translate-y-40' }, 
+    { w: 'w-[350px] max-w-[60vw]', h: 'aspect-[3/4]', y: 'self-center translate-y-8 md:translate-y-16' }, 
     // 4: FIELD TRIP (Section - Ukuran super besar)
-    { w: 'w-[750px] max-w-[95vw]', h: 'aspect-[16/9]', y: 'self-start mt-10 md:mt-12' },
+    { w: 'w-[750px] max-w-[95vw]', h: 'aspect-[16/9]', y: 'self-center' },
     // 5: FOCUS (Section)
-    { w: 'w-[550px] max-w-[85vw]', h: 'aspect-[5/4]', y: 'self-end -translate-y-4 md:-translate-y-24' },
+    { w: 'w-[550px] max-w-[85vw]', h: 'aspect-[5/4]', y: 'self-end -translate-y-4 md:-translate-y-12' },
     // 6: VICTORY (Card)
-    { w: 'w-[700px] max-w-[95vw]', h: 'aspect-[2/1]', y: 'self-center -translate-y-48' },
+    { w: 'w-[700px] max-w-[95vw]', h: 'aspect-[2/1]', y: 'self-start mt-4 md:mt-12' }, // Changed from center translate-y-48 (unsafe)
     // 7: TRANSITION (Card)
-    { w: 'w-[480px] max-w-[78vw]', h: 'aspect-[3/2]', y: 'self-start mt-0 md:mt-0' },
+    { w: 'w-[480px] max-w-[78vw]', h: 'aspect-[3/2]', y: 'self-center' },
     // 8: MILESTONE (Card)
-    { w: 'w-[380px] max-w-[65vw]', h: 'aspect-[4/5]', y: 'self-end -translate-y-40' },
+    { w: 'w-[380px] max-w-[65vw]', h: 'aspect-[4/5]', y: 'self-end -translate-y-8 md:-translate-y-16' },
     // 9: HANG OUT (Card)
-    { w: 'w-[650px] max-w-[92vw]', h: 'aspect-video', y: 'self-center translate-y-48' },
+    { w: 'w-[650px] max-w-[92vw]', h: 'aspect-video', y: 'self-center translate-y-8 md:translate-y-12' },
   ];
 
   // Data Highlights (diperluas dan diubah menjadi Section)
@@ -327,7 +327,7 @@ const Journey = () => {
 
   return (
     // Base font diubah menjadi font-sans-clean
-    <div id="journey" className="min-h-screen bg-[#F3F3F1] text-[#1a1a1a] font-sans-clean selection:bg-[#B91C1C] selection:text-white">
+    <div id="journey" className="min-h-screen bg-transparent text-white font-sans-clean selection:bg-primary selection:text-white">
       
       {/* Styles */}
       <style>{`
@@ -357,13 +357,13 @@ const Journey = () => {
       <div ref={sectionRef} className="relative h-[400vh]"> 
         
         {/* Sticky Wrapper - items-start dan padding vertikal untuk staggering */}
-        <div className="sticky top-0 h-screen overflow-hidden flex items-start pt-48 pb-48 bg-[#F3F3F1 sticky-wrapper]">
+        <div className="sticky top-0 h-screen overflow-hidden flex items-center pt-24 pb-24 bg-transparent">
           
           {/* TRACK SIMPLIFICATION: Garis lurus sederhana (dipertahankan sebagai flow visual) */}
           {/* Horizontal Track - Mengandung Kartu dan Line SVG */}
           <div 
             ref={trackRef}
-            className="flex items-start gap-12 md:gap-24 px-12 md:px-24 will-change-transform relative h-full"
+            className="flex items-center gap-12 md:gap-24 px-12 md:px-24 will-change-transform relative h-full"
             style={{ transform: `translateX(${getTranslateX()}px)` }}
           >
              {/* TRACK SIMPLIFICATION: Garis lurus sederhana (dipertahankan sebagai flow visual) */}
@@ -378,9 +378,9 @@ const Journey = () => {
                {/* Gradient Definition */}
                <defs>
                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                   <stop offset="0%" stopColor="#B91C1C" stopOpacity="0.2" />
-                   <stop offset="50%" stopColor="#B91C1C" stopOpacity="1" />
-                   <stop offset="100%" stopColor="#B91C1C" stopOpacity="0.2" />
+                   <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.2" />
+                   <stop offset="50%" stopColor="#3B82F6" stopOpacity="1" />
+                   <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.2" />
                  </linearGradient>
                  {/* Mask untuk animasi menggambar garis sesuai scroll */}
                  <mask id="draw-mask">
@@ -403,7 +403,7 @@ const Journey = () => {
                     ref={pathRef}
                     d={pathD} 
                     fill="none" 
-                    stroke="#B91C1C" 
+                    stroke="#3B82F6" 
                     strokeWidth="3"
                     strokeOpacity="0.4"
                   />
@@ -411,7 +411,7 @@ const Journey = () => {
                   <path 
                     d={pathD} 
                     fill="none" 
-                    stroke="#B91C1C" 
+                    stroke="#3B82F6" 
                     strokeWidth="3"
                     strokeDasharray="10 10"
                     className="animate-pulse" 
@@ -426,7 +426,7 @@ const Journey = () => {
               className="min-w-[300px] md:min-w-[400px] flex flex-col justify-center relative z-20 self-center"
             >
                {/* Dot penghubung awal */}
-               <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#B91C1C] border-4 border-[#F3F3F1] shadow-xl z-30"></div>
+               <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-primary border-4 border-dark shadow-xl z-30"></div>
                
                <h2 className="text-4xl font-serif-display mb-4">The Timeline</h2>
                <p className="text-neutral-500 max-w-sm font-sans-clean">
@@ -459,7 +459,7 @@ const Journey = () => {
                       >
                           
                           {/* DOT PENGHUBUNG - Lebih besar dan berwarna merah */}
-                          <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#B91C1C] border-4 border-[#F3F3F1] shadow-xl z-30"></div>
+                          <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-primary border-4 border-dark shadow-xl z-30"></div>
 
                           {/* --- CARD CONTENT --- */}
 
@@ -498,7 +498,7 @@ const Journey = () => {
                                 
                                 {/* Floating Badge - Ikon Calendar berwarna merah dan teks putih */}
                                 <div className="absolute top-0 left-0 bg-black/80 text-white px-4 py-2 font-sans-clean text-xs font-bold uppercase backdrop-blur-md z-10 rounded-br-lg"> 
-                                  <Calendar className="inline h-3 w-3 mr-2 text-[#B91C1C]" /> {item.date}
+                                  <Calendar className="inline h-3 w-3 mr-2 text-primary" /> {item.date}
                                 </div>
                               </div>
                             </>
@@ -507,7 +507,7 @@ const Journey = () => {
 
                           {/* Text Content (sama untuk Card & Section) */}
                           <div className={`flex justify-between items-start border-l-4 pl-6 pt-4 
-                              ${isSection ? 'border-[#B91C1C]' : 'border-neutral-300'}`}
+                              ${isSection ? 'border-primary' : 'border-neutral-300'}`}
                           >
                               <div>
                                 <h3 className="text-4xl md:text-6xl font-serif-display mb-2 group-hover:text-neutral-500 transition-colors">
@@ -530,9 +530,9 @@ const Journey = () => {
             })}
 
             {/* Closing Card (TIDAK ADA ANIMASI) */}
-            <div ref={closingRef} className="min-w-[400px] md:min-w-[600px] flex items-center justify-center bg-[#B91C1C] h-[60vh] p-12 relative z-20 rounded-xl shadow-2xl self-center">
+            <div ref={closingRef} className="min-w-[400px] md:min-w-[600px] flex items-center justify-center bg-primary h-[60vh] p-12 relative z-20 rounded-xl shadow-2xl self-center">
                {/* DOT PENGHUBUNG AKHIR - Lebih besar dan berwarna merah */}
-               <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#B91C1C] border-4 border-[#F3F3F1] shadow-xl z-30"></div>
+               <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-primary border-4 border-dark shadow-xl z-30"></div>
                
                <div className="text-center text-white">
                  <h2 className="text-6xl font-serif-display italic mb-6">To Be Continued</h2>

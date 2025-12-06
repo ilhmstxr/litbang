@@ -12,7 +12,7 @@ const Team = () => {
       <div className="w-full px-6 md:px-12 max-w-screen-2xl mx-auto">
         <RevealCard>
           <div className="text-center mb-16">
-            <span className="text-lime-400 font-mono tracking-widest text-sm mb-2 block">{teamStaticData.label}</span>
+            <span className="text-primary font-mono tracking-widest text-sm mb-2 block">{teamStaticData.label}</span>
             <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white">
               {teamStaticData.title.prefix} <span className="text-transparent stroke-white stroke-1" style={{ WebkitTextStroke: '2px white' }}>{teamStaticData.title.highlight}</span>
             </h2>
