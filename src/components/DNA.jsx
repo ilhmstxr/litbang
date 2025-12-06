@@ -17,13 +17,13 @@ const DNA = () => {
   return (
     <section id="dna" className="py-24 bg-neutral-950 relative overflow-hidden">
       {/* Visual Noise/Doodles Background */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#a3e635 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+      <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F59E0B 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
       
       <div className="w-full px-6 md:px-12 relative z-10 max-w-screen-2xl mx-auto">
         <RevealCard>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white mb-4">
-              {dnaData.header.title} <br/> <span className="text-lime-400 italic font-serif lowercase">{dnaData.header.highlight}</span>
+              {dnaData.header.title} <br/> <span className="text-secondary italic font-serif lowercase">{dnaData.header.highlight}</span>
             </h2>
             <p className="text-neutral-400 text-xl max-w-2xl mx-auto">
               {dnaData.header.desc}
