@@ -327,7 +327,7 @@ const Journey = () => {
 
   return (
     // Base font diubah menjadi font-sans-clean
-    <div className="min-h-screen bg-[#F3F3F1] text-[#1a1a1a] font-sans-clean selection:bg-[#B91C1C] selection:text-white">
+    <div id="journey" className="min-h-screen bg-[#F3F3F1] text-[#1a1a1a] font-sans-clean selection:bg-[#B91C1C] selection:text-white">
       
       {/* Styles */}
       <style>{`
