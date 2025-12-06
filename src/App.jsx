@@ -12,12 +12,14 @@ import Marquee from './components/Marquee';
 import MusicPlayer from './components/MusicPlayer';
 import Notes from './components/Notes';
 import LoadingScreen from './components/LoadingScreen';
+import InstagramStory from './components/InstagramStory';
 import { marqueeData } from './assets/isi-konten';
 
 const App = () => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
   const [unlockedSections, setUnlockedSections] = useState([]);
+  const [isStoryOpen, setIsStoryOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -69,10 +71,13 @@ const App = () => {
       <Social />
       {/* <Highlights /> */}
       <Team />
-      <Memories />
+      <Memories onOpenStory={() => setIsStoryOpen(true)} />
       <Footer />
       <MusicPlayer />
       <Notes />
+      
+      {/* Story Template Modal */}
+      {isStoryOpen && <InstagramStory onClose={() => setIsStoryOpen(false)} />}
       </div>
 
       {/* Styles */}

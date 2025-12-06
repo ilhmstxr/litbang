@@ -5,7 +5,7 @@ import PhotoDeck from './PhotoDeck';
 
 import { memoriesData } from '../assets/isi-konten';
 
-const Memories = () => {
+const Memories = ({ onOpenStory }) => {
   return (
     <section id="memories" className="py-32 px-6 bg-neutral-950 overflow-hidden relative">
       <div className="absolute top-10 left-0 w-full text-center pointer-events-none select-none">
@@ -17,10 +17,13 @@ const Memories = () => {
            <p className="text-neutral-400 mb-12">{memoriesData.desc}</p>
          </RevealCard>
          <PhotoDeck />
-         <div className="mt-12">
-           <button className="bg-white text-black px-8 py-4 rounded-full font-black text-xl uppercase tracking-wider hover:bg-primary hover:text-white transition-colors flex items-center gap-3 mx-auto shadow-lg shadow-white/10 hover:shadow-primary/50"><Upload size={24} /> Setor Foto Kamu</button>
-           <p className="text-neutral-500 mt-4 text-sm font-mono">*Foto akan dikurasi sebelum ditampilkan di website.</p>
+         <div className="mt-12 flex flex-col md:flex-row gap-6 justify-center items-center">
+           <button className="bg-white text-black px-8 py-4 rounded-full font-black text-xl uppercase tracking-wider hover:bg-primary hover:text-white transition-colors flex items-center gap-3 shadow-lg shadow-white/10 hover:shadow-primary/50"><Upload size={24} /> Setor Foto Kamu</button>
+           <button onClick={onOpenStory} className="text-neutral-500 font-mono text-sm hover:text-white underline underline-offset-4 decoration-primary decoration-2 transition-colors">
+              Lihat Template Story
+           </button>
          </div>
+         <p className="text-neutral-500 mt-4 text-sm font-mono">*Foto akan dikurasi sebelum ditampilkan di website.</p>
       </div>
     </section>
   );
