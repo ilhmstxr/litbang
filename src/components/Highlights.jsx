@@ -3,19 +3,13 @@ import { Calendar, MapPin } from 'lucide-react';
 import RevealCard from './RevealCard';
 import LogoPlaceholder from './LogoPlaceholder';
 
-const Highlights = ({ scrollY }) => {
-  const journeyHighlights = [
-    { title: "First Gathering", date: "Jan 2024", loc: "Villa Kaliurang", img: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=600", rotate: "rotate-3", tag: "Kick Off" },
-    { title: "Rapat Kerja I", date: "Feb 2024", loc: "Co-Working Space", img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600", rotate: "-rotate-2", tag: "Serious Mode" },
-    { title: "Webinar Nasional", date: "Apr 2024", loc: "Zoom Meeting", img: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&q=80&w=600", rotate: "rotate-6", tag: "Public Event" },
-    { title: "Team Bonding", date: "Jun 2024", loc: "Pantai Selatan", img: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&q=80&w=600", rotate: "-rotate-3", tag: "Healing" },
-    { title: "Kunjungan Riset", date: "Aug 2024", loc: "Desa Binaan", img: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&q=80&w=600", rotate: "rotate-2", tag: "Field Trip" },
-    { title: "Proposal Camp", date: "Sep 2024", loc: "Perpus Pusat", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600", rotate: "rotate-4", tag: "Focus" },
-    { title: "Award Night", date: "Dec 2024", loc: "Main Hall", img: "https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&q=80&w=600", rotate: "-rotate-1", tag: "Victory" }
-  ];
+import { highlightsData, highlightsStaticData } from '../assets/isi-konten';
 
-  const leftColumn = journeyHighlights.filter((_, i) => i % 2 === 0);
-  const rightColumn = journeyHighlights.filter((_, i) => i % 2 !== 0);
+const Highlights = ({ scrollY }) => {
+  // Data moved to src/assets/isi-konten.js
+
+  const leftColumn = highlightsData.filter((_, i) => i % 2 === 0);
+  const rightColumn = highlightsData.filter((_, i) => i % 2 !== 0);
 
   return (
     <section id="highlights" className="py-24 bg-neutral-950 relative overflow-hidden">
@@ -23,8 +17,8 @@ const Highlights = ({ scrollY }) => {
       <div className="w-full px-6 md:px-12 relative z-10 max-w-screen-2xl mx-auto">
         <RevealCard>
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-6 border-b border-neutral-800 pb-8">
-            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">Our <br/> <span className="text-transparent stroke-white stroke-1" style={{ WebkitTextStroke: '2px #a3e635' }}>Journey</span></h2>
-            <div className="flex flex-col items-end"><p className="text-lime-400 font-mono text-xl mb-2">2024 REWIND</p><p className="text-neutral-400 max-w-xs text-right text-sm">Sorotan kegiatan dan momen krusial yang membentuk departemen kami tahun ini.</p></div>
+            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">{highlightsStaticData.title.prefix} <br/> <span className="text-transparent stroke-white stroke-1" style={{ WebkitTextStroke: '2px #a3e635' }}>{highlightsStaticData.title.highlight}</span></h2>
+            <div className="flex flex-col items-end"><p className="text-lime-400 font-mono text-xl mb-2">{highlightsStaticData.rewind}</p><p className="text-neutral-400 max-w-xs text-right text-sm">{highlightsStaticData.desc}</p></div>
           </div>
         </RevealCard>
 

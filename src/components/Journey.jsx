@@ -50,6 +50,8 @@ const BentoItem = ({ item, className }) => (
 
 // --- Main Component ---
 
+import { journeyData, journeyStaticData } from '../assets/isi-konten';
+
 const Journey = () => {
   // Refs untuk menghitung dimensi dan posisi scroll
   const sectionRef = useRef(null);
@@ -57,156 +59,7 @@ const Journey = () => {
   const [progress, setProgress] = useState(0);
 
   // Data Highlights
-  const journeyHighlights = [
-    { 
-      title: "KICK OFF", 
-      subtitle: "First Gathering",
-      desc: "Permulaan perjalanan kami di Villa Kaliurang.",
-      date: "JAN 2024", 
-      img: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800", 
-      type: "landscape"
-    },
-    {
-      isGroup: true,
-      title: "WORKSHOP",
-      items: [
-        { 
-          title: "WORKSHOP I", 
-          subtitle: "Dasar Penelitian",
-          desc: "Pengenalan metodologi riset dasar.",
-          date: "FEB 2024", 
-          img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600", 
-        },
-        { 
-          title: "WORKSHOP II", 
-          subtitle: "Data Analysis",
-          desc: "Teknik pengolahan data statistik.",
-          date: "FEB 2024", 
-          img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600", 
-        },
-        { 
-          title: "WORKSHOP III", 
-          subtitle: "Public Speaking",
-          desc: "Melatih kemampuan presentasi ilmiah.",
-          date: "MAR 2024", 
-          img: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&q=80&w=600", 
-        },
-        { 
-          title: "WORKSHOP IV", 
-          subtitle: "Scientific Writing",
-          desc: "Penulisan jurnal dan karya ilmiah.",
-          date: "MAR 2024", 
-          img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=600", 
-        }
-      ]
-    },
-    {
-      isGroup: true,
-      title: "COMPETITION",
-      items: [
-        { 
-          title: "LOMBA NASIONAL", 
-          subtitle: "Persiapan Tim",
-          desc: "Brainstorming dan penyusunan proposal.",
-          date: "MAY 2024", 
-          img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800", 
-        },
-        { 
-          title: "FINAL STAGE", 
-          subtitle: "Presentasi Final",
-          desc: "Pemaparan hasil karya di depan juri.",
-          date: "MAY 2024", 
-          img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800", 
-        },
-        { 
-          title: "AWARDING", 
-          subtitle: "Juara Umum",
-          desc: "Momen kemenangan tim Litbang.",
-          date: "JUN 2024", 
-          img: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800", 
-        }
-      ]
-    },
-    { 
-      title: "UPGRADING", 
-      subtitle: "Skill Level Up",
-      desc: "Evaluasi dan peningkatan kapasitas tim.",
-      date: "JUL 2024", 
-      img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600", 
-      type: "portrait"
-    },
-    {
-      isGroup: true,
-      title: "PKM CENTER",
-      items: [
-        { 
-          title: "IDEATION", 
-          subtitle: "Pencarian Ide",
-          desc: "Menggali masalah dan solusi inovatif.",
-          date: "SEP 2024", 
-          img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600", 
-        },
-        { 
-          title: "DRAFTING", 
-          subtitle: "Penyusunan Proposal",
-          desc: "Menulis bab demi bab dengan teliti.",
-          date: "SEP 2024", 
-          img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600", 
-        },
-        { 
-          title: "REVIEW", 
-          subtitle: "Bedah Proposal",
-          desc: "Feedback dari dosen pembimbing.",
-          date: "OCT 2024", 
-          img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=600", 
-        },
-        { 
-          title: "SUBMISSION", 
-          subtitle: "Upload Simbelmawa",
-          desc: "Langkah terakhir menuju pendanaan.",
-          date: "OCT 2024", 
-          img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=600", 
-        }
-      ]
-    },
-    {
-      isGroup: true,
-      title: "ON DUTY",
-      items: Array(8).fill(null).map((_, i) => ({
-        title: `KEGIATAN ${i + 1}`,
-        subtitle: "Kunjungan Lapangan",
-        desc: "Dokumentasi kegiatan riset dan pengabdian.",
-        date: "NOV 2024",
-        img: `https://images.unsplash.com/photo-${[
-          '1531206715517-5c0ba140b2b8', // Field
-          '1559027615-cd4628902d4a', // Group
-          '1522202176988-66273c2fd55f', // Meeting
-          '1552664730-d307ca884978', // Work
-          '1543269865-cbf427effbad', // Discussion
-          '1517048676732-8382b63e4233', // Team
-          '1521737604893-d14cc237f11d', // Office
-          '1606857521015-7f9fcf423740'  // Lab
-        ][i % 8]}?auto=format&fit=crop&q=80&w=600`,
-      }))
-    },
-    {
-      isGroup: true,
-      title: "STUDY",
-      items: Array(5).fill(null).map((_, i) => ({
-        title: `STUDY ${i + 1}`,
-        subtitle: "Research Daily",
-        desc: "Kegiatan belajar dan diskusi rutin.",
-        date: "DEC 2024",
-        img: `https://images.unsplash.com/photo-${[
-          '1478131143081-80f7f84ca84d', // Library
-          '1434030216411-0b793f4b4173', // Writing
-          '1501504905252-473c47e087f8', // Coffee
-          '1456513080510-7bf3a84b82f8', // Books
-          '1497633762265-9d179a990aa6'  // Study
-        ][i % 5]}?auto=format&fit=crop&q=80&w=600`,
-      }))
-    }
-  ];
+  // journeyHighlights is now imported as journeyData
 
   // Logic Scroll Horizontal
   useEffect(() => {
@@ -389,17 +242,17 @@ const Journey = () => {
             
             {/* Intro Text Card */}
             <div className="min-w-[300px] md:min-w-[400px] flex flex-col justify-center">
-               <h2 className="text-4xl mb-4 text-white" style={{ fontFamily: '"Playfair Display", serif' }}>The Timeline</h2>
+               <h2 className="text-4xl mb-4 text-white" style={{ fontFamily: '"Playfair Display", serif' }}>{journeyStaticData.title}</h2>
                <p className="text-neutral-400 max-w-sm">
-                 Setiap langkah memiliki cerita. Dari inisiasi awal hingga pencapaian akhir, ini adalah galeri kenangan yang kami bangun bersama.
+                 {journeyStaticData.desc}
                </p>
                <div className="mt-8 flex items-center gap-2 text-sm font-bold uppercase tracking-widest animate-pulse text-lime-400">
-                  Scroll Down <ArrowUpRight className="rotate-90" />
+                  {journeyStaticData.scrollLabel} <ArrowUpRight className="rotate-90" />
                </div>
             </div>
 
             {/* Loop Items with Group Support */}
-            {journeyHighlights.map((item, idx) => {
+            {journeyData.map((item, idx) => {
               if (item.isGroup) {
                 return renderBentoGrid(item, idx);
               }
@@ -409,12 +262,12 @@ const Journey = () => {
             {/* Closing Card */}
             <div className="min-w-[400px] md:min-w-[600px] flex items-center justify-center bg-lime-400 h-[60vh] p-12">
                <div className="text-center">
-                 <h2 className="text-6xl italic mb-6 text-black" style={{ fontFamily: '"Playfair Display", serif' }}>To Be Continued</h2>
+                 <h2 className="text-6xl italic mb-6 text-black" style={{ fontFamily: '"Playfair Display", serif' }}>{journeyStaticData.closing.title}</h2>
                  <p className="font-sans text-lg max-w-md mx-auto mb-8 text-black">
-                   Perjalanan kami belum berakhir. Bergabunglah untuk menulis bab selanjutnya.
+                   {journeyStaticData.closing.desc}
                  </p>
                  <button className="bg-black text-white px-8 py-4 font-bold uppercase tracking-widest hover:scale-105 transition-transform">
-                   Join Litbang
+                   {journeyStaticData.closing.button}
                  </button>
                </div>
             </div>

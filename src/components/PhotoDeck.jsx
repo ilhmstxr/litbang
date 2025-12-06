@@ -1,14 +1,10 @@
 import React from 'react';
 import { Plus } from 'lucide-react';
 
+import { photoDeckData } from '../assets/isi-konten';
+
 const PhotoDeck = () => {
-  const cards = [
-    { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600", rotate: '-rotate-12', z: 'z-10', translate: '-translate-x-24 md:-translate-x-48', label: "TEAM" },
-    { src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=600", rotate: '-rotate-6', z: 'z-20', translate: '-translate-x-12 md:-translate-x-24', label: "MEETING" },
-    { src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600", rotate: 'rotate-0', z: 'z-30', translate: 'translate-x-0', label: "HANGOUT", main: true },
-    { src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=600", rotate: 'rotate-6', z: 'z-20', translate: 'translate-x-12 md:translate-x-24', label: "LAUGH" },
-    { type: 'upload' }, 
-  ];
+  const { cards, upload } = photoDeckData;
 
   return (
     <div className="relative h-[500px] flex items-center justify-center py-20 overflow-hidden group">
@@ -19,8 +15,8 @@ const PhotoDeck = () => {
                 <div className="bg-black text-white p-4 rounded-full mb-2 group-hover/upload:scale-110 transition-transform">
                   <Plus size={32} />
                 </div>
-                <span className="font-black text-black uppercase text-xl">Add Yours</span>
-                <span className="text-xs font-mono font-bold mt-1">Join the frame</span>
+                <span className="font-black text-black uppercase text-xl">{upload.label}</span>
+                <span className="text-xs font-mono font-bold mt-1">{upload.sublabel}</span>
                 <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" />
             </div>
            );

@@ -3,16 +3,18 @@ import { Upload } from 'lucide-react';
 import RevealCard from './RevealCard';
 import PhotoDeck from './PhotoDeck';
 
+import { memoriesData } from '../assets/isi-konten';
+
 const Memories = () => {
   return (
     <section id="memories" className="py-32 px-6 bg-neutral-950 overflow-hidden relative">
       <div className="absolute top-10 left-0 w-full text-center pointer-events-none select-none">
-         <span className="text-6xl md:text-9xl font-black text-neutral-900 uppercase leading-none opacity-50">UNFILTERED</span>
+         <span className="text-6xl md:text-9xl font-black text-neutral-900 uppercase leading-none opacity-50">{memoriesData.bgText}</span>
       </div>
       <div className="w-full px-6 md:px-12 relative z-10 text-center max-w-screen-2xl mx-auto">
          <RevealCard>
-           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">CAPTURE THE MOMENT</h2>
-           <p className="text-neutral-400 mb-12">Geser, lihat, dan tambahkan kenanganmu sendiri.</p>
+           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">{memoriesData.title}</h2>
+           <p className="text-neutral-400 mb-12">{memoriesData.desc}</p>
          </RevealCard>
          <PhotoDeck />
          <div className="mt-12">

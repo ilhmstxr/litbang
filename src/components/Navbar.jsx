@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Camera, Menu, X } from 'lucide-react';
 
-const Navbar = ({ unlockedSections }) => {
+import { navbarData } from '../assets/isi-konten';
+
+const Navbar = ({ unlockedSections, activeSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -12,12 +14,13 @@ const Navbar = ({ unlockedSections }) => {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-8 font-bold text-sm uppercase tracking-widest">
-        {['DNA', 'Journey', 'Social', 'Highlights', 'Team'].map((item) => {
-           const isUnlocked = unlockedSections.includes(item.toLowerCase());
+        {navbarData.map(({ id, label }) => {
+           const isUnlocked = unlockedSections.includes(id);
+           const isActive = activeSection === id;
            return (
             <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
+              key={id} 
+              href={`#${id}`} 
               className={`
                 transition-all duration-500 transform
                 ${isUnlocked 
@@ -25,9 +28,11 @@ const Navbar = ({ unlockedSections }) => {
                   : 'opacity-0 -translate-y-4 pointer-events-none'
                 }
                 hover:text-lime-400 hover:scale-110 active:scale-95
+                ${isActive ? 'text-lime-400 scale-110' : 'text-white'}
+                ${id === 'journey' && isUnlocked && !isActive ? 'animate-pulse' : ''} 
               `}
             >
-              {item}
+              {label}
             </a>
            )
         })}
@@ -50,14 +55,14 @@ const Navbar = ({ unlockedSections }) => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-8 md:hidden">
-          {['DNA', 'Journey', 'Social', 'Highlights', 'Team'].map((item) => (
+          {navbarData.map(({ id, label }) => (
             <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
+              key={id} 
+              href={`#${id}`} 
               className="text-2xl font-black uppercase tracking-widest text-white hover:text-lime-400"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              {item}
+              {label}
             </a>
           ))}
           <button className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-lime-400 transition-colors uppercase text-lg flex items-center gap-2 mt-4">

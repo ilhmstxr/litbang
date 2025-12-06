@@ -9,6 +9,7 @@ import Team from './components/Team';
 import Memories from './components/Memories';
 import Footer from './components/Footer';
 import Marquee from './components/Marquee';
+import { marqueeData } from './assets/isi-konten';
 
 const App = () => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -32,7 +33,7 @@ const App = () => {
           });
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0 });
 
     sections.forEach(id => {
       const el = document.getElementById(id);
@@ -46,7 +47,7 @@ const App = () => {
     <div className="bg-black min-h-screen text-white">
       <Navbar unlockedSections={unlockedSections} />
       <Hero />
-      <Marquee text="LITBANG 2024 • RESEARCH & DEVELOPMENT •" />
+      <Marquee text={marqueeData.text} />
       <DNA />
       <Journey />
       <Social />
