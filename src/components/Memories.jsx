@@ -18,7 +18,7 @@ const Memories = () => {
          </RevealCard>
          <PhotoDeck />
          <div className="mt-12">
-           <button className="bg-lime-400 text-black px-8 py-4 rounded-full font-black text-xl uppercase tracking-wider hover:scale-105 transition-transform flex items-center gap-3 mx-auto shadow-lg shadow-lime-400/20"><Upload size={24} /> Setor Foto Kamu</button>
+           <button className="bg-white text-black px-8 py-4 rounded-full font-black text-xl uppercase tracking-wider hover:bg-primary hover:text-white transition-colors flex items-center gap-3 mx-auto shadow-lg shadow-white/10 hover:shadow-primary/50"><Upload size={24} /> Setor Foto Kamu</button>
            <p className="text-neutral-500 mt-4 text-sm font-mono">*Foto akan dikurasi sebelum ditampilkan di website.</p>
          </div>
       </div>

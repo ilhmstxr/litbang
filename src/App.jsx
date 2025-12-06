@@ -9,6 +9,9 @@ import Team from './components/Team';
 import Memories from './components/Memories';
 import Footer from './components/Footer';
 import Marquee from './components/Marquee';
+import MusicPlayer from './components/MusicPlayer';
+import Notes from './components/Notes';
+import LoadingScreen from './components/LoadingScreen';
 import { marqueeData } from './assets/isi-konten';
 
 const App = () => {
@@ -43,15 +46,21 @@ const App = () => {
     return () => observer.disconnect();
   }, []);
 
+  /* Loading State */
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <div className="bg-dark min-h-screen text-white relative">
+       {/* Loading Screen Overlay */}
+       {isLoading && <LoadingScreen onFinish={() => setIsLoading(false)} />}
+
        {/* Background Layer */}
        <div className="fixed inset-0 z-0 opacity-20 pointer-events-none">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=1600')] bg-cover bg-center filter blur-3xl scale-125"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-dark via-transparent to-dark"></div>
        </div>
 
-      <div className="relative z-10">
+      <div className={`relative z-10 transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Navbar unlockedSections={unlockedSections} />
         <Hero />
       <Marquee text={marqueeData.text} />
@@ -62,6 +71,8 @@ const App = () => {
       <Team />
       <Memories />
       <Footer />
+      <MusicPlayer />
+      <Notes />
       </div>
 
       {/* Styles */}

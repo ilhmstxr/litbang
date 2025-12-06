@@ -17,7 +17,7 @@ const Social = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-center">
            {socialData.items.map((item, idx) => (
              <RevealCard key={idx} className={`flex flex-col items-center ${idx % 2 !== 0 ? 'md:mt-12' : ''}`}> {/* Stagger effect for even items */}
-               <div className={`relative w-full max-w-sm aspect-[4/5] bg-neutral-900 rounded-[3rem] p-4 shadow-2xl ${item.rotate} hover:rotate-0 transition-transform duration-500 border border-neutral-800 hover:border-primary/50 group`}>
+               <div className={`relative w-full max-w-sm aspect-[4/5] bg-neutral-900 rounded-[3rem] p-4 shadow-2xl ${item.rotate} hover:rotate-0 hover:scale-[1.02] transition-all duration-500 border border-neutral-800 hover:border-primary/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] group`}>
                   
                   {/* Notch */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-6 bg-neutral-950 rounded-b-xl z-20 border-b border-r border-l border-neutral-800"></div>

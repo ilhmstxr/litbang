@@ -10,5 +10,5 @@ TODO
 - pergantian latar belakang agar, tone warna. serta asset yang lebih ramai, namun di blur
 - loading screen interaktif
 - animasi sambutan video di awal, kurang lebih 3~5 detik (seperti "Hi, meet the AnomaLitbang!, kenalan yuk!"), dengan animasi welcoming yang hangat.
-- OUR SOCIALS, diganti OUR PRODUCT (aksi workshop, aksi pkm, aksi belajar, edulit, aksi tema) -> jangan lupa untuk menambahkan asset logo, serta pejelasan singkat tentang program kerja / agenda tersebut. (nanti bisa di buka di page baru untuk penjelasan detail, serta memoriesnya / link ke agenda tersebut)
+CHECK - OUR SOCIALS, diganti OUR PRODUCT (aksi workshop, aksi pkm, aksi belajar, edulit, aksi tema) -> jangan lupa untuk menambahkan asset logo, serta pejelasan singkat tentang program kerja / agenda tersebut. (nanti bisa di buka di page baru untuk penjelasan detail, serta memoriesnya / link ke agenda tersebut)
 - OUR JOURNEY dihapus

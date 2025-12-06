@@ -484,6 +484,34 @@ export const journeyStaticData = {
   },
 };
 
+// --- Music Component Data ---
+export const musicData = [
+  {
+    title: "Dreaming of You",
+    artist: "LITBANG Vibes",
+    duration: "3:45",
+    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    cover:
+      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=200",
+  },
+  {
+    title: "Coding Night",
+    artist: "Dev Team",
+    duration: "4:20",
+    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    cover:
+      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=200",
+  },
+  {
+    title: "Focus Flow",
+    artist: "Brainwave",
+    duration: "2:50",
+    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    cover:
+      "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?auto=format&fit=crop&q=80&w=200",
+  },
+];
+
 // --- Team Component Static Data ---
 export const teamStaticData = {
   label: "MEET THE SQUAD",
