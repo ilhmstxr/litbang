@@ -416,82 +416,89 @@ const Journey = () => {
               const isSection = item.type === 'section';
 
               return (
-                <Reveal key={idx} ref={el => setItemRef(el, idx)} className={`relative group flex-shrink-0 z-20 ${config.w} ${config.y}`}>
-                  <div 
-                    // Ref dipindahkan ke Reveal wrapper diatas
-                    className={`
-                        flex flex-col gap-6
-                        transform transition-transform duration-700 ease-out
-                    `}
-                  >
-                      
-                      {/* DOT PENGHUBUNG - Lebih besar dan berwarna merah */}
-                      <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#B91C1C] border-4 border-[#F3F3F1] shadow-xl z-30"></div>
-
-                      {/* --- CARD CONTENT --- */}
-
-                      {isSection ? (
-                        // Render Section Card
-                        <SectionCardRenderer item={item} config={config} />
-                      ) : (
-                        // Render Regular Card
-                        <>
-                          {/* Image Container + PARALLAX EFFECT */}
-                          <div className="relative overflow-hidden shadow-2xl rounded-xl border-4 border-white/50">
-                            <div className={`
-                                w-full overflow-hidden relative
-                                ${config.h} {/* Menerapkan rasio aspek yang unik dari config */}
-                            `}>
-                                {/* Parallax Wrapper: Bergerak pelan ke kanan berdasarkan progress scroll */}
-                                <div 
-                                  className="absolute top-0 left-0 h-full w-[120%] -ml-[10%]"
-                                  style={{ 
-                                    transform: `translateX(${progress * 60}px)`, 
-                                    transition: 'transform 0.1s linear'
-                                  }}
-                                >
-                                  {/* Actual Image: Handles Hover Scale */}
-                                  <img 
-                                      src={item.img} 
-                                      alt={item.title} 
-                                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-110 transition-all duration-1000 ease-in-out" 
-                                      onError={(e) => {
-                                        e.target.onerror = null; 
-                                        e.target.src="https://placehold.co/800x600/1a1a1a/F3F3F1?text=Image+Placeholder";
-                                      }}
-                                  />
-                                </div>
-                            </div>
-                            
-                            {/* Floating Badge - Ikon Calendar berwarna merah dan teks putih */}
-                            <div className="absolute top-0 left-0 bg-black/80 text-white px-4 py-2 font-sans-clean text-xs font-bold uppercase backdrop-blur-md z-10 rounded-br-lg"> 
-                              <Calendar className="inline h-3 w-3 mr-2 text-[#B91C1C]" /> {item.date}
-                            </div>
-                          </div>
-                        </>
-                      )}
-
-
-                      {/* Text Content (sama untuk Card & Section) */}
-                      <div className={`flex justify-between items-start border-l-4 pl-6 pt-4 
-                          ${isSection ? 'border-[#B91C1C]' : 'border-neutral-300'}`}
+                // WRAPPER STATIC untuk Ref Line yang akurat
+                // Layout classes dipindah kesini agar posisi ref tidak berubah saat animasi card bergerak
+                <div 
+                   key={idx}
+                   ref={el => setItemRef(el, idx)} 
+                   className={`relative group flex-shrink-0 z-20 ${config.w} ${config.y}`}
+                >
+                    <Reveal className="w-full h-full">
+                      <div 
+                        className={`
+                            flex flex-col gap-6
+                            transform transition-transform duration-700 ease-out
+                        `}
                       >
-                          <div>
-                            <h3 className="text-4xl md:text-6xl font-serif-display mb-2 group-hover:text-neutral-500 transition-colors">
-                              {item.title}
-                            </h3>
-                            <p className="text-lg font-bold uppercase tracking-tight mb-1 font-sans-clean">{item.subtitle}</p>
-                            <p className="text-sm text-neutral-500 max-w-xs font-sans-clean">{item.desc}</p>
-                          </div>
-                          <div className="hidden md:block">
-                             <span className="text-6xl font-black text-black/5 font-sans-clean">
-                               0{idx + 1}
-                             </span>
-                          </div>
-                      </div>
+                          
+                          {/* DOT PENGHUBUNG - Lebih besar dan berwarna merah */}
+                          <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#B91C1C] border-4 border-[#F3F3F1] shadow-xl z-30"></div>
 
-                  </div>
-                </Reveal>
+                          {/* --- CARD CONTENT --- */}
+
+                          {isSection ? (
+                            // Render Section Card
+                            <SectionCardRenderer item={item} config={config} />
+                          ) : (
+                            // Render Regular Card
+                            <>
+                              {/* Image Container + PARALLAX EFFECT */}
+                              <div className="relative overflow-hidden shadow-2xl rounded-xl border-4 border-white/50">
+                                <div className={`
+                                    w-full overflow-hidden relative
+                                    ${config.h} {/* Menerapkan rasio aspek yang unik dari config */}
+                                `}>
+                                    {/* Parallax Wrapper: Bergerak pelan ke kanan berdasarkan progress scroll */}
+                                    <div 
+                                      className="absolute top-0 left-0 h-full w-[120%] -ml-[10%]"
+                                      style={{ 
+                                        transform: `translateX(${progress * 60}px)`, 
+                                        transition: 'transform 0.1s linear'
+                                      }}
+                                    >
+                                      {/* Actual Image: Handles Hover Scale */}
+                                      <img 
+                                          src={item.img} 
+                                          alt={item.title} 
+                                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-110 transition-all duration-1000 ease-in-out" 
+                                          onError={(e) => {
+                                            e.target.onerror = null; 
+                                            e.target.src="https://placehold.co/800x600/1a1a1a/F3F3F1?text=Image+Placeholder";
+                                          }}
+                                      />
+                                    </div>
+                                </div>
+                                
+                                {/* Floating Badge - Ikon Calendar berwarna merah dan teks putih */}
+                                <div className="absolute top-0 left-0 bg-black/80 text-white px-4 py-2 font-sans-clean text-xs font-bold uppercase backdrop-blur-md z-10 rounded-br-lg"> 
+                                  <Calendar className="inline h-3 w-3 mr-2 text-[#B91C1C]" /> {item.date}
+                                </div>
+                              </div>
+                            </>
+                          )}
+
+
+                          {/* Text Content (sama untuk Card & Section) */}
+                          <div className={`flex justify-between items-start border-l-4 pl-6 pt-4 
+                              ${isSection ? 'border-[#B91C1C]' : 'border-neutral-300'}`}
+                          >
+                              <div>
+                                <h3 className="text-4xl md:text-6xl font-serif-display mb-2 group-hover:text-neutral-500 transition-colors">
+                                  {item.title}
+                                </h3>
+                                <p className="text-lg font-bold uppercase tracking-tight mb-1 font-sans-clean">{item.subtitle}</p>
+                                <p className="text-sm text-neutral-500 max-w-xs font-sans-clean">{item.desc}</p>
+                              </div>
+                              <div className="hidden md:block">
+                                 <span className="text-6xl font-black text-black/5 font-sans-clean">
+                                   0{idx + 1}
+                                 </span>
+                              </div>
+                          </div>
+
+                      </div>
+                    </Reveal>
+                </div>
               );
             })}
 
