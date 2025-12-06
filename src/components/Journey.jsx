@@ -315,6 +315,16 @@ const Journey = () => {
     return -(progress * maxTranslate);
   };
   
+  const [pathLength, setPathLength] = useState(0);
+  const pathRef = useRef(null);
+
+  // Measure path length when pathD changes
+  useEffect(() => {
+    if (pathRef.current) {
+      setPathLength(pathRef.current.getTotalLength());
+    }
+  }, [pathD, svgDimensions]); // Update when path or dimensions change
+
   return (
     // Base font diubah menjadi font-sans-clean
     <div className="min-h-screen bg-[#F3F3F1] text-[#1a1a1a] font-sans-clean selection:bg-[#B91C1C] selection:text-white">
@@ -372,24 +382,41 @@ const Journey = () => {
                    <stop offset="50%" stopColor="#B91C1C" stopOpacity="1" />
                    <stop offset="100%" stopColor="#B91C1C" stopOpacity="0.2" />
                  </linearGradient>
+                 {/* Mask untuk animasi menggambar garis sesuai scroll */}
+                 <mask id="draw-mask">
+                    <path 
+                      d={pathD} 
+                      fill="none" 
+                      stroke="white" 
+                      strokeWidth="5" 
+                      strokeDasharray={pathLength}
+                      strokeDashoffset={pathLength - (pathLength * progress)}
+                      strokeLinecap="round"
+                    />
+                 </mask>
                </defs>
-               {/* Main Path */}
-               <path 
-                 d={pathD} 
-                 fill="none" 
-                 stroke="#B91C1C" 
-                 strokeWidth="3"
-                 strokeOpacity="0.4"
-               />
-               {/* Animated Dashed Path Overlay */}
-               <path 
-                 d={pathD} 
-                 fill="none" 
-                 stroke="#B91C1C" 
-                 strokeWidth="3"
-                 strokeDasharray="10 10"
-                 className="animate-pulse" 
-               />
+
+               {/* Group yang di-masking agar muncul pelan-pelan */}
+               <g mask="url(#draw-mask)">
+                  {/* Main Path (yang digunakan juga untuk mengukur panjang) */}
+                  <path 
+                    ref={pathRef}
+                    d={pathD} 
+                    fill="none" 
+                    stroke="#B91C1C" 
+                    strokeWidth="3"
+                    strokeOpacity="0.4"
+                  />
+                  {/* Animated Dashed Path Overlay */}
+                  <path 
+                    d={pathD} 
+                    fill="none" 
+                    stroke="#B91C1C" 
+                    strokeWidth="3"
+                    strokeDasharray="10 10"
+                    className="animate-pulse" 
+                  />
+               </g>
              </svg>
             
             
