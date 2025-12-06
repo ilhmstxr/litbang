@@ -1,0 +1,14 @@
+TODO 
+- membuat notes yang dapat dikirim ke dalam web, namun menyimpan menggunakkan js / ajax agar tidak usah tersambung ke database
+- menambahkan music pada pojok kanan bawah, (pakai card)
+- untuk menu akan muncul di sisi kiri, tetap pertahankan untuk animasi muncul menu nya.
+- berikan animasi hover agar lebih mulus ketika bergerak ke dalam id nya. serta penambahan animasi untuk hover
+- capture the moment, k
+- membuat template story instagram tentang website ini, dan dapat link kedalam website ini
+- pemilihan ulang untuk tone warna nya, (jangan hijau neon, hitam, dan putih)
+- tambahkan untuk sosmed di card meet the squad
+- pergantian latar belakang agar, tone warna. serta asset yang lebih ramai, namun di blur
+- loading screen interaktif
+- animasi sambutan video di awal, kurang lebih 3~5 detik (seperti "Hi, meet the AnomaLitbang!, kenalan yuk!"), dengan animasi welcoming yang hangat.
+- OUR SOCIALS, diganti OUR PRODUCT (aksi workshop, aksi pkm, aksi belajar, edulit, aksi tema) -> jangan lupa untuk menambahkan asset logo, serta pejelasan singkat tentang program kerja / agenda tersebut. (nanti bisa di buka di page baru untuk penjelasan detail, serta memoriesnya / link ke agenda tersebut)
+- OUR JOURNEY dihapus
