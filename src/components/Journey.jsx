@@ -22,14 +22,14 @@ const Reveal = forwardRef(({ children, className, delay = 0 }, externalRef) => {
     
     // Create observer instance
     observer = new IntersectionObserver(([entry]) => {
-      // Kartu muncul hanya jika 40% area kartu sudah terlihat (threshold: 0.4)
+      // Kartu muncul hanya jika 100% area kartu sudah terlihat (threshold: 1.0)
       if (entry.isIntersecting) {
         // 1. Set visible ke true
         setVisible(true);
-        // 2. Hentikan pengamatan setelah terdeteksi untuk mencegah flickering/reset
+        // 2. Hentikan pengamatan setelah terdeteksi
         if (observer) observer.unobserve(currentRef);
       }
-    }, { threshold: 0.4 }); 
+    }, { threshold: 1.0 }); 
     
     observer.observe(currentRef);
     
